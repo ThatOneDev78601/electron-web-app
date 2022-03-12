@@ -5,43 +5,13 @@
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "dist": "electron-builder",
+    "start": "electron .",
+    "dist": "electron-builder build",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
   "author": "ThatOneDev#1534",
   "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "testing_web_app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
-  },
   "dependencies": {
     "ejs": "^3.1.6",
     "electron-squirrel-startup": "^1.0.0",
@@ -53,27 +23,15 @@
     "compression": "normal",
     "asar": true,
     "extends": null,
-    "files": [
-      "electron-start.js",
-      "build/**/*",
-      "node_modules/**/*",
-      "src/regionsApp/r_icon.png"
-    ],
     "linux": {
-      "target": "zip"
+      "target": "AppImage"
     },
     "win": {
       "target": "nsis"
     }
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.63",
-    "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-    "@electron-forge/maker-zip": "^6.0.0-beta.63",
     "electron": "17.1.0",
-    "electron-builder": "^22.14.13",
-    "electron-packager": "^15.4.0"
+    "electron-builder": "^22.14.13"
   }
 }
